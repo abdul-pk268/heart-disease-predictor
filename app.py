@@ -34,11 +34,15 @@ with col2:
 st.divider()
 
 # 4. Predict Button Logic
-if st.button("Predict Risk", type="primary"):
+if st.button("Predict"):
+    # Create feature array in exact order
     features = np.array([[age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]])
+    
+    # Make prediction
     prediction = model.predict(features)[0]
     
-   if prediction == 0:
-    st.success("✅ Low Risk: Lower likelihood of heart disease detected.")
-else:
-    st.error("⚠️ High Risk: The model indicates a higher likelihood of heart disease.")
+    # Display result with proper indentation
+    if prediction == 0:
+        st.success("✅ Low Risk: Lower likelihood of heart disease detected.")
+    else:
+        st.error("⚠️ High Risk: Higher likelihood of heart disease detected.")
