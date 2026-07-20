@@ -38,7 +38,7 @@ if st.button("Predict Risk", type="primary"):
     features = np.array([[age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]])
     prediction = model.predict(features)[0]
     
-    if prediction == 1:
-        st.error("⚠️ **High Risk:** The model indicates a higher likelihood of heart disease.")
-    else:
-        st.success("✅ **Low Risk:** The model indicates a lower likelihood of heart disease.")
+   if prediction == 0:
+    st.success("✅ Low Risk: Lower likelihood of heart disease detected.")
+else:
+    st.error("⚠️ High Risk: The model indicates a higher likelihood of heart disease.")
