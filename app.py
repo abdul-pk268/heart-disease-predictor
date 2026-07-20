@@ -37,14 +37,10 @@ st.divider()
 if st.button("Predict"):
     features = np.array([[age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]])
     
-    # Get raw probabilities
-    probabilities = model.predict_proba(features)[0]
     prediction = model.predict(features)[0]
     
-    st.write(f"**Debug Info:** Raw Prediction Class = `{prediction}`")
-    st.write(f"**Debug Info:** Probabilities (Class 0 vs Class 1) = `{probabilities}`")
-
+    # Class 1 = Low Risk, Class 0 = High Risk
     if prediction == 1:
-        st.error("⚠️ High Risk: Higher likelihood of heart disease detected.")
-    else:
         st.success("✅ Low Risk: Lower likelihood of heart disease detected.")
+    else:
+        st.error("⚠️ High Risk: Higher likelihood of heart disease detected.")
