@@ -2,9 +2,8 @@
 
 A clean, interactive web app that uses Machine Learning to estimate the risk of heart disease based on everyday clinical health metrics.
 
-🔗 **Live App:** [Try the Heart Disease Predictor here!](https://share.streamlit.io/) <!-- Replace with your actual Streamlit link -->
+🔗 **Live App:** [Try the Heart Disease Predictor here!](https://heart-disease-predictor-ndkjnszjecbvsz5gggpa2a.streamlit.app/)
 
----
 
 ## 💡 About The Project
 
