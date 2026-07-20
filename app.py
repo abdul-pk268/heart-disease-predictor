@@ -35,14 +35,16 @@ st.divider()
 
 # 4. Predict Button Logic
 if st.button("Predict"):
-    # Create feature array in exact order
     features = np.array([[age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]])
     
-    # Make prediction
+    # Get raw probabilities
+    probabilities = model.predict_proba(features)[0]
     prediction = model.predict(features)[0]
     
-    # Display result with proper indentation
-    if prediction == 0:
-        st.success("✅ Low Risk: Lower likelihood of heart disease detected.")
-    else:
+    st.write(f"**Debug Info:** Raw Prediction Class = `{prediction}`")
+    st.write(f"**Debug Info:** Probabilities (Class 0 vs Class 1) = `{probabilities}`")
+
+    if prediction == 1:
         st.error("⚠️ High Risk: Higher likelihood of heart disease detected.")
+    else:
+        st.success("✅ Low Risk: Lower likelihood of heart disease detected.")
